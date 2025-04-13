@@ -13,11 +13,11 @@
     "url": "https://github.com/Forbirdden/beery-desktop"
   },
   "dependencies": {
-    "electron": "^25.0.0",
     "electron-store": "^8.1.0",
     "node-fetch": "^2.6.7"
   },
   "devDependencies": {
+    "electron": "^25.0.0",
     "electron-builder": "^24.4.0"
   },
   "build": {
