@@ -1,0 +1,49 @@
+{
+  "name": "beery-desktop",
+  "version": "0.0.1",
+  "description": "GitHub App Store client",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "license": "AGPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Forbirdden/beery-desktop"
+  },
+  "dependencies": {
+    "electron": "^25.0.0",
+    "electron-store": "^8.1.0",
+    "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {
+    "electron-builder": "^24.4.0"
+  },
+  "build": {
+    "appId": "com.forbirdden.beery",
+    "productName": "Beery",
+    "copyright": "Copyright © 2025 ${Forbirdden}",
+    "win": {
+      "icon": "assets/logot.png",
+      "target": "nsis"
+    },
+    "mac": {
+      "icon": "assets/logot.png",
+      "category": "public.app-category.developer-tools"
+    },
+    "linux": {
+      "icon": "assets/logot.png",
+      "category": "Development",
+      "target": [
+        "AppImage",
+        "deb",
+        "rpm"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
