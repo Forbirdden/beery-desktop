@@ -182,14 +182,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         return (assets || []).map(asset => {
             const ext = asset.name.split('.').pop().toLowerCase();
+            const lowerName = asset.name.toLowerCase();
+
             if (['blockmap', 'yml', 'sha', 'sig', 'asc', 'txt', 'zsync', 'sym'].includes(ext)) return null;
 
             let os = Object.entries(osOverrides).find(([key]) => 
-                asset.name.toLowerCase().includes(key.toLowerCase())
+                lowerName.includes(key.toLowerCase())
             )?.[1];
 
             if (!os) {
-                const lowerName = asset.name.toLowerCase();
                 if (lowerName.includes('linux') || lowerName.includes('lin')) os = 'linux';
                 else if (lowerName.includes('win') || lowerName.includes('windows')) os = 'windows';
                 else if (lowerName.includes('mac') || lowerName.includes('osx') || lowerName.includes('darwin')) os = 'macos';
