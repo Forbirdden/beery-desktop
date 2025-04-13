@@ -30,8 +30,7 @@
     "releaseType": "release"
   },
   "win": {
-    "target": "nsis",
-    "publishAutoUpdate": true
+    "target": "nsis"
   },
   "mac": {
     "target": "dmg",
