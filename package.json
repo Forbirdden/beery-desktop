@@ -16,7 +16,7 @@
     "type": "git",
     "url": "https://github.com/Forbirdden/beery-desktop"
   },
-  "author": "Forbirdden <Lajoken@proton.me>",
+  "author": "Forbirdden <@forbirdden.>",
   "dependencies": {
     "electron-store": "^8.1.0",
     "node-fetch": "^2.6.7"
