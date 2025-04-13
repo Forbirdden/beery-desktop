@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/Forbirdden/beery-desktop"
   },
-    "author": "Forbirdden <Lajoken@proton.me>",
+  "author": "Forbirdden <Lajoken@proton.me>",
   "dependencies": {
     "electron-store": "^8.1.0",
     "node-fetch": "^2.6.7"
@@ -25,26 +25,33 @@
     "appId": "com.forbirdden.beery",
     "productName": "Beery",
     "copyright": "Copyright © 2025 Forbirdden",
-  "publish": {
-    "provider": "github",
-    "releaseType": "release"
-  },
-  "win": {
-    "icon": "assets/logot.png",
-      "target": ["nsis:x64", "nsis:arm64"]
-  },
-  "mac": {
-    "icon": "assets/logot.png",
-      "target": ["dmg:x64", "dmg:arm64"],
-    "category": "public.app-category.developer-tools"
-  },
-  "linux": {
-    "icon": "assets/logot.png",
-      "target": ["AppImage:x64", "AppImage:arm64", "deb:x64", "deb:arm64", "rpm:x64", "rpm:arm64"]
-  }
-},
-    "nsis": {
-      "oneClick": false,
-      "allowToChangeInstallationDirectory": true
+    "publish": {
+      "provider": "github",
+      "releaseType": "release"
+    },
+    "win": {
+      "icon": "assets/logot.png",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64", "arm64"]
+        }
+      ],
+      "nsis": {
+        "oneClick": false,
+        "allowToChangeInstallationDirectory": true
+      }
+    },
+    "mac": {
+      "icon": "assets/logot.png",
+      "target": "dmg",
+      "arch": ["x64", "arm64"],
+      "category": "public.app-category.developer-tools"
+    },
+    "linux": {
+      "icon": "assets/logot.png",
+      "target": ["AppImage", "deb", "rpm"],
+      "arch": ["x64", "arm64"]
     }
   }
+}
