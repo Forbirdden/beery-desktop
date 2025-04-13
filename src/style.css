@@ -1,260 +1,197 @@
 :root {
     --primary-color: #2563eb;
     --hover-color: #1d4ed8;
-    --danger-color: #dc3545;
-    --success-color: #28a745;
-    --warning-color: #ffc107;
-    --info-color: #17a2b8;
+    --success-color: #10b981;
+    --danger-color: #ef4444;
     --shadow-color: rgba(0, 0, 0, 0.1);
     --text-color: #1e293b;
     --muted-color: #64748b;
     --border-color: #e2e8f0;
-    --bg-color: #ffffff;
-    --card-bg: #f8f9fa;
+    --bg-color: #f8fafc;
 }
 
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 .site-header {
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
-    background: var(--bg-color);
-    padding: 15px 25px;
+    background: #ffffff;
+    padding: 1rem 2rem;
     box-shadow: 0 2px 15px var(--shadow-color);
     z-index: 1000;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 1.5rem;
 }
 
 .header-logo {
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 .header-logo:hover {
-    transform: translateX(3px);
-}
-
-.nav-tabs {
-    border-bottom: none;
-    margin-bottom: 0;
-}
-
-.nav-tabs .nav-link {
-    border: none;
-    color: var(--muted-color);
-    font-weight: 500;
-    padding: 8px 16px;
-}
-
-.nav-tabs .nav-link.active {
-    color: var(--primary-color);
-    background: transparent;
-    border-bottom: 2px solid var(--primary-color);
+    transform: translateY(-2px);
 }
 
 .search-group {
     position: relative;
+    flex-grow: 1;
+    max-width: 400px;
     margin-left: auto;
-    width: 200px;
-    transition: width 0.3s ease;
 }
 
 .search-input {
-    width: 100%;
-    padding: 8px 35px 8px 15px;
     border-radius: 20px;
+    padding: 0.75rem 1.25rem;
     border: 2px solid var(--border-color);
-    font-size: 0.9rem;
     transition: all 0.3s ease;
 }
 
 .search-input:focus {
-    width: 280px;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .search-btn {
     position: absolute;
-    right: 10px;
+    right: 15px;
     top: 50%;
     transform: translateY(-50%);
     background: none;
     border: none;
-    padding: 5px;
     color: var(--muted-color);
-    cursor: pointer;
 }
 
-.search-btn:hover {
-    color: var(--primary-color);
+.nav-pills .nav-link {
+    border-radius: 8px;
+    padding: 0.5rem 1.25rem;
+    color: var(--muted-color);
+    transition: all 0.2s ease;
 }
 
-.main-content {
-    margin-top: 100px;
-    padding-bottom: 50px;
+.nav-pills .nav-link.active {
+    background: var(--primary-color) !important;
+    color: white !important;
 }
 
-.card {
-    border: none;
+.app-card {
+    background: white;
+    border: 1px solid var(--border-color);
     border-radius: 12px;
+    transition: all 0.2s ease;
     overflow: hidden;
-    background: var(--card-bg);
-    transition: all 0.3s ease;
 }
 
-.card:hover {
+.app-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 15px var(--shadow-color);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.1);
 }
 
 .app-icon {
     width: 64px;
     height: 64px;
-    border-radius: 15px;
+    border-radius: 12px;
     object-fit: contain;
     border: 2px solid var(--border-color);
-}
-
-.card-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--text-color);
-}
-
-.text-muted {
-    color: var(--muted-color) !important;
-}
-
-.download-group {
-    display: flex;
-    gap: 8px;
+    background: white;
 }
 
 .download-btn {
-    background: var(--primary-color);
-    border: none;
-    padding: 8px 20px;
-    transition: all 0.3s ease;
-    flex-grow: 1;
+    position: relative;
+    padding-right: 2.5rem !important;
 }
 
-.download-btn:hover {
-    background: var(--hover-color);
-    transform: scale(1.02);
+.download-btn::after {
+    content: "↓";
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-.download-btn:disabled {
-    background: var(--muted-color);
-    cursor: not-allowed;
+.btn-installed {
+    background: var(--success-color) !important;
+    color: white !important;
+    pointer-events: none;
 }
 
-.dropdown-btn {
-    width: 40px;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.installed-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--success-color);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
 }
 
-.installed-app-item {
-    transition: all 0.3s ease;
-    background: var(--card-bg);
+.download-option .badge {
+    background: var(--primary-color) !important;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 500;
 }
 
-.installed-app-item:hover {
-    transform: translateX(5px);
-    background: var(--bg-color);
+#emptyInstalled {
+    display: none;
+}
+
+#installed-list:empty + #emptyInstalled {
+    display: block;
+}
+
+.uninstall-btn {
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.uninstall-btn:hover {
+    background: var(--danger-color) !important;
+    border-color: var(--danger-color) !important;
 }
 
 .modal-content {
-    border-radius: 12px;
+    border-radius: 16px;
     border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-.modal-header {
-    border-bottom: none;
-    padding: 1.5rem;
-}
-
-.modal-title {
-    font-weight: 600;
-    color: var(--text-color);
-}
-
-.modal-body {
-    padding: 1.5rem;
-}
-
-.version-select {
-    margin-bottom: 1rem;
-}
-
-.download-option {
-    margin-bottom: 0.5rem;
-}
-
-.download-option .btn {
-    text-align: left;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.badge {
-    font-weight: 500;
-    padding: 6px 10px;
-}
-
-footer {
-    background: var(--card-bg);
-    margin-top: 2rem;
-}
-
-@media (max-width: 992px) {
+@media (max-width: 768px) {
     .site-header {
         flex-wrap: wrap;
-        padding: 12px 15px;
-    }
-    
-    .nav-tabs {
-        order: 3;
-        width: 100%;
-        margin-top: 10px;
+        padding: 1rem;
     }
     
     .search-group {
-        margin-left: 0;
         order: 2;
-    }
-    
-    .main-content {
-        margin-top: 140px;
-    }
-}
-
-@media (max-width: 576px) {
-    .search-group {
         width: 100%;
-    }
-    
-    .search-input:focus {
-        width: 100%;
-    }
-    
-    .card-title {
-        font-size: 1.1rem;
+        margin-top: 1rem;
     }
     
     .app-icon {
         width: 48px;
         height: 48px;
     }
+}
+
+@media (max-width: 576px) {
+    .modal-dialog {
+        margin: 0.5rem;
+    }
+    
+    .download-option .btn {
+        font-size: 0.9rem;
+    }
+}
+
+.progress-bar {
+    height: 3px;
+    background: var(--primary-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
 }
