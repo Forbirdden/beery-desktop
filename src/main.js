@@ -1,52 +1,37 @@
-const { app, BrowserWindow, ipcMain, shell } = require('electron');
-const path = require('path');
-const fs = require('fs');
-const fetch = require('node-fetch');
-const Store = require('electron-store');
+const { app, BrowserWindow, ipcMain, shell } = require('electron')
+const path = require('path')
+const os = require('os')
+const fs = require('fs')
 
-const store = new Store();
-let mainWindow;
-
-async function updateRepos() {
-  try {
-    const response = await fetch('https://raw.githubusercontent.com/Forbirdden/beery/main/repos.json');
-    const data = await response.json();
-    fs.writeFileSync(path.join(app.getPath('userData'), 'repos.json'), JSON.stringify(data));
-    mainWindow.webContents.send('repos-updated');
-  } catch (error) {
-    console.error('Failed to update repos:', error);
-  }
-}
+let mainWindow
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    icon: path.join(__dirname, '../assets/logot.png'),
     width: 1200,
     height: 800,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: false,
-      contextIsolation: true
+      contextIsolation: true,
+      preload: path.join(__dirname, 'preload.js')
     }
-  });
+  })
 
-  mainWindow.loadFile(path.join(__dirname, 'index.html'));
-
-  setInterval(updateRepos, 60 * 60 * 1000);
-  updateRepos(); 
-
-  mainWindow.webContents.setWindowOpenHandler(({ url }) => {
-    shell.openExternal(url);
-    return { action: 'deny' };
-  });
+  mainWindow.loadFile('index.html')
 }
 
-app.whenReady().then(createWindow);
+ipcMain.handle('get-platform', () => {
+  const platform = os.platform()
+  const arch = os.arch()
+  return `${platform}-${arch}`
+})
 
-ipcMain.handle('get-repos', () => {
-  return fs.readFileSync(path.join(app.getPath('userData'), 'repos.json'), 'utf-8');
-});
+ipcMain.handle('fetch-repos', async () => {
+  try {
+    const response = await fetch('https://github.com/Forbirdden/beery/repos.json')
+    return await response.json()
+  } catch (error) {
+    return JSON.parse(fs.readFileSync('repos.json'))
+  }
+})
 
-ipcMain.handle('get-token', () => store.get('github_token'));
-ipcMain.handle('set-token', (_, token) => store.set('github_token', token));
-ipcMain.handle('delete-token', () => store.delete('github_token'));
+app.whenReady().then(createWindow)
