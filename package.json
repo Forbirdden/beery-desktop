@@ -24,23 +24,22 @@
     "appId": "com.forbirdden.beery",
     "productName": "Beery",
     "copyright": "Copyright © 2025 ${Forbirdden}",
-    "win": {
-      "icon": "assets/logot.png",
-      "target": "nsis"
-    },
-    "mac": {
-      "icon": "assets/logot.png",
-      "category": "public.app-category.developer-tools"
-    },
-    "linux": {
-      "icon": "assets/logot.png",
-      "category": "Development",
-      "target": [
-        "AppImage",
-        "deb",
-        "rpm"
-      ]
-    },
+  "publish": {
+    "provider": "github",
+    "releaseType": "release"
+  },
+  "win": {
+    "target": "nsis",
+    "publishAutoUpdate": true
+  },
+  "mac": {
+    "target": "dmg",
+    "category": "public.app-category.developer-tools"
+  },
+  "linux": {
+    "target": ["AppImage", "deb"]
+  }
+},
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true
