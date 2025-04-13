@@ -31,16 +31,19 @@
   },
   "win": {
     "icon": "assets/logot.png",
-    "target": "nsis"
+    "target": "nsis",
+    "arch": ["x64", "arm64"]
   },
   "mac": {
     "icon": "assets/logot.png",
     "target": "dmg",
-    "category": "public.app-category.developer-tools"
+    "category": "public.app-category.developer-tools",
+    "arch": ["x64", "arm64"]
   },
   "linux": {
     "icon": "assets/logot.png",
-    "target": ["AppImage", "deb"]
+    "target": ["AppImage", "deb"],
+    "arch": ["x64", "arm64"]
   }
 },
     "nsis": {
