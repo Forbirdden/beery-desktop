@@ -1,6 +1,6 @@
 {
   "name": "beery",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Desktop app for open-source app store",
   "main": "src/main.js",
   "scripts": {
