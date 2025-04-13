@@ -5,7 +5,11 @@
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder"
+    "build": "electron-builder",
+    "build:win": "electron-builder --win --x64 --arm64",
+    "build:mac": "electron-builder --mac --x64 --arm64",
+    "build:linux": "electron-builder --linux --x64 --arm64",
+    "build:all": "npm run build:win && npm run build:mac && npm run build:linux"
   },
   "license": "AGPL-3.0",
   "repository": {
@@ -19,7 +23,7 @@
   },
   "devDependencies": {
     "electron": "^25.0.0",
-    "electron-builder": "^24.4.0"
+    "electron-builder": "^24.13.3"
   },
   "build": {
     "appId": "com.forbirdden.beery",
@@ -36,22 +40,38 @@
           "target": "nsis",
           "arch": ["x64", "arm64"]
         }
-      ],
-      "nsis": {
-        "oneClick": false,
-        "allowToChangeInstallationDirectory": true
-      }
+      ]
     },
     "mac": {
       "icon": "assets/logot.png",
-      "target": "dmg",
-      "arch": ["x64", "arm64"],
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64"]
+        }
+      ],
       "category": "public.app-category.developer-tools"
     },
     "linux": {
       "icon": "assets/logot.png",
-      "target": ["AppImage", "deb", "rpm"],
-      "arch": ["x64", "arm64"]
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": ["x64", "arm64"]
+        },
+        {
+          "target": "deb",
+          "arch": ["x64", "arm64"]
+        },
+        {
+          "target": "rpm",
+          "arch": ["x64", "arm64"]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
     }
   }
 }
