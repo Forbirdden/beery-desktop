@@ -1,7 +1,7 @@
 {
   "name": "beery-desktop",
   "version": "0.0.1",
-  "description": "GitHub App Store client",
+  "description": "Desktop app for open-source app store",
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
