@@ -28,7 +28,7 @@
   "build": {
     "asar": false,
     "appId": "com.forbirdden.beery",
-    "productName": "Beery",
+    "productName": "beery",
     "copyright": "Copyright © 2025 Forbirdden",
     "publish": {
       "provider": "github",
