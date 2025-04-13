@@ -31,19 +31,16 @@
   },
   "win": {
     "icon": "assets/logot.png",
-    "target": "nsis",
-    "arch": ["x64", "arm64"]
+      "target": ["nsis:x64", "nsis:arm64"]
   },
   "mac": {
     "icon": "assets/logot.png",
-    "target": "dmg",
-    "category": "public.app-category.developer-tools",
-    "arch": ["x64", "arm64"]
+      "target": ["dmg:x64", "dmg:arm64"]
+    "category": "public.app-category.developer-tools"
   },
   "linux": {
     "icon": "assets/logot.png",
-    "target": ["AppImage", "deb"],
-    "arch": ["x64", "arm64"]
+      "target": ["AppImage:x64", "AppImage:arm64", "deb:x64", "deb:arm64", "rpm:x64", "rpm:arm64"]
   }
 },
     "nsis": {
