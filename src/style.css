@@ -1,0 +1,260 @@
+:root {
+    --primary-color: #2563eb;
+    --hover-color: #1d4ed8;
+    --danger-color: #dc3545;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --text-color: #1e293b;
+    --muted-color: #64748b;
+    --border-color: #e2e8f0;
+    --bg-color: #ffffff;
+    --card-bg: #f8f9fa;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-color);
+    padding: 15px 25px;
+    box-shadow: 0 2px 15px var(--shadow-color);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-logo {
+    transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: translateX(3px);
+}
+
+.nav-tabs {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    color: var(--muted-color);
+    font-weight: 500;
+    padding: 8px 16px;
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--primary-color);
+    background: transparent;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.search-group {
+    position: relative;
+    margin-left: auto;
+    width: 200px;
+    transition: width 0.3s ease;
+}
+
+.search-input {
+    width: 100%;
+    padding: 8px 35px 8px 15px;
+    border-radius: 20px;
+    border: 2px solid var(--border-color);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    width: 280px;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.search-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 5px;
+    color: var(--muted-color);
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    color: var(--primary-color);
+}
+
+.main-content {
+    margin-top: 100px;
+    padding-bottom: 50px;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--card-bg);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px var(--shadow-color);
+}
+
+.app-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 15px;
+    object-fit: contain;
+    border: 2px solid var(--border-color);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.text-muted {
+    color: var(--muted-color) !important;
+}
+
+.download-group {
+    display: flex;
+    gap: 8px;
+}
+
+.download-btn {
+    background: var(--primary-color);
+    border: none;
+    padding: 8px 20px;
+    transition: all 0.3s ease;
+    flex-grow: 1;
+}
+
+.download-btn:hover {
+    background: var(--hover-color);
+    transform: scale(1.02);
+}
+
+.download-btn:disabled {
+    background: var(--muted-color);
+    cursor: not-allowed;
+}
+
+.dropdown-btn {
+    width: 40px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.installed-app-item {
+    transition: all 0.3s ease;
+    background: var(--card-bg);
+}
+
+.installed-app-item:hover {
+    transform: translateX(5px);
+    background: var(--bg-color);
+}
+
+.modal-content {
+    border-radius: 12px;
+    border: none;
+}
+
+.modal-header {
+    border-bottom: none;
+    padding: 1.5rem;
+}
+
+.modal-title {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.version-select {
+    margin-bottom: 1rem;
+}
+
+.download-option {
+    margin-bottom: 0.5rem;
+}
+
+.download-option .btn {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.badge {
+    font-weight: 500;
+    padding: 6px 10px;
+}
+
+footer {
+    background: var(--card-bg);
+    margin-top: 2rem;
+}
+
+@media (max-width: 992px) {
+    .site-header {
+        flex-wrap: wrap;
+        padding: 12px 15px;
+    }
+    
+    .nav-tabs {
+        order: 3;
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .search-group {
+        margin-left: 0;
+        order: 2;
+    }
+    
+    .main-content {
+        margin-top: 140px;
+    }
+}
+
+@media (max-width: 576px) {
+    .search-group {
+        width: 100%;
+    }
+    
+    .search-input:focus {
+        width: 100%;
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
+    }
+    
+    .app-icon {
+        width: 48px;
+        height: 48px;
+    }
+}
